@@ -1,0 +1,68 @@
+<meta charset="utf-8"><meta name="viewport" content="user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<link href="css/note_main.css" type="text/css" rel="stylesheet">
+<style>
+body{
+background-color:#222;
+}
+@keyframes noteid0{
+0%{
+transform:translateY(-170%);
+}
+100%{
+transform:translateY(100%);
+}
+}
+@keyframes noteid1{
+0%{
+transform:translateY(0%);
+}
+100%{
+transform:translateY(100%);
+}
+}
+@keyframes lineid0{
+
+}
+</style>
+<script>
+/*
+window.onresize=function(){
+var w=window.innerWidth;
+var h=window.innerHeight;
+var scale;
+if(w>h){
+scale=1;
+}else{
+scale=w/h;
+}
+//document.getElementById("gameplay").style.transform="scale("+scale+")";
+};
+window.onload=window.onresize;
+*/
+</script>
+<div class="main">
+<div id="gameplay" class="gameplay">
+<div class="line">
+<div style="background-color:#f00;position:absolute;left:50%;top:50%;width:5px;height:5px;transform:translate(-50%,-50%);z-index:9;"></div>
+<div class="line_body"></div>
+<div class="note_container" style="left:50%;">
+<div class="note_body_container_container note_body_clip">
+<div class="note_body_container" style="animation:noteid0 5s both linear infinite;">
+<img class="note_body" src="../resources/img/hold_end.png"></img>
+<img class="note_body note_body_hold" src="../resources/img/hold.png" style="height:170%;"></img>
+<img class="note_body" src="../resources/img/hold_start.png"></img>
+</div>
+</div>
+</div>
+
+<div class="note_container" style="left:53.3333%;">
+<div class="note_body_container_container">
+<div class="note_body_container" style="animation:noteid1 5s both linear infinite;">
+<img class="note_body" src="../resources/img/tap.png"></img>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<link href="css/note_main_i5s2.css" type="text/css" rel="stylesheet">
+<link href="css/note_explode.css" type="text/css" rel="stylesheet">
+<style>
+body{
+background-color:#222;
+}
+@keyframes noteid0_0{
+0%{
+transform:translate(-50%,0) translateY(-70%);
+}
+30%{
+transform:translate(-50%,0) translateY(0%);
+}
+100%{
+transform:translate(-50%,0) translateY(0%);
+}
+}
+@keyframes noteid0_1{
+0%{
+transform:translateY(0%);
+}
+30%{
+transform:translateY(0%);
+}
+100%{
+transform:translateY(100%);
+}
+}
+@keyframes noteid1{
+0%{
+transform:translateY(-100%);
+}
+100%{
+transform:translateY(100%);
+}
+}
+@keyframes lineid0{
+0%{
+transform:translate(-16.6666%,-16.6666%) rotate(0deg);
+}
+100%{
+transform:translate(16.6666%,16.6666%) rotate(360deg);
+}
+}
+</style>
+</head><body>
+<div class="main">
+<div id="gameplay" class="gameplay">
+<div class="line" style1="animation:lineid0 10s linear infinite;">
+<!--<div style="background-color:#f00;position:absolute;left:50%;top:50%;width:5px;height:5px;transform:translate(-50%,-50%);z-index:9;"></div>-->
+<div class="line_body"></div>
+<div class="note_container_clip">
+<div class="note_container_hold" style="left:50%;animation:noteid0_0 5s both linear infinite;">
+<div class="note_body_container_hold" style1="transform:translateY(-69.46%)" style="animation:noteid0_1 5s both linear infinite;">
+<img class="note_body note_body_hold" src="../resources/img/hold_end.png">
+<img class="note_body note_body_hold" src="../resources/img/hold_body.png" style="height:70%;">
+<img class="note_body note_body_hold" src="../resources/img/hold_start.png">
+</div>
+</div>
+
+<div class="note_container_normal" style="animation:noteid1 4s both linear infinite;">
+<img class="note_body" style="left:46.6666%;bottom:0;" src="../resources/img/tap.png">
+<img class="note_body" style="left:50%;bottom:20%;" src="../resources/img/drag.png">
+<img class="note_body" style="left:53.3333%;bottom:40%;" src="../resources/img/flick.png">
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
