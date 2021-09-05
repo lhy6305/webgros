@@ -11,6 +11,8 @@ elem.cscroll.tdsX=0;
 elem.cscroll.tdsY=0;
 elem.cscroll.startX=0;
 elem.cscroll.startY=0;
+elem.cscroll.lastmoveX=0;
+elem.cscroll.lastmoveY=0;
 elem.cscroll.lastmovetime=0;
 elem.cscroll.enabled=true;
 /*
@@ -27,6 +29,8 @@ elem.cscroll.startX=e.changedTouches[0].clientX;
 elem.cscroll.startY=e.changedTouches[0].clientY;
 elem.style.transition="";
 elem.cscroll.lastmovetime=0;
+elem.cscroll.lastmoveX=elem.cscroll.startX;
+elem.cscroll.lastmoveY=elem.cscroll.startY;
 };
 
 elem.cscroll.fmove=function(e){
@@ -36,9 +40,9 @@ return;
 var elem=cscroll.curelem;
 var container=elem.parentNode;
 var dsX=e.changedTouches[0].clientX-elem.cscroll.startX;
-var tmpX=dsX+elem.cscroll.tdsX;
+elem.cscroll.lastmoveX=dsX+elem.cscroll.tdsX;
 var dsY=e.changedTouches[0].clientY-elem.cscroll.startY;
-var tmpY=dsY+elem.cscroll.tdsY;
+elem.cscroll.lastmoveY=dsY+elem.cscroll.tdsY;
 /*
 tmp=Math.min(tmp,maxDown);
 tmp=Math.max(tmp,maxUp);
@@ -49,11 +53,11 @@ var otop=0;
 var obottom=container.offsetHeight-elem.offsetHeight;
 e.preventDefault();
 if(elem.cscroll.towards==0){
-elem.style.transform="translate("+tmpX+"px,0)";
+elem.style.transform="translate("+elem.cscroll.lastmoveX+"px,0)";
 }else if(elem.cscroll.towards==1){
-elem.style.transform="translate(0,"+tmpY+"px)";
+elem.style.transform="translate(0,"+elem.cscroll.lastmoveY+"px)";
 }else if(elem.cscroll.towards==2){
-elem.style.transform="translate("+tmpX+"px,"+tmpY+"px)";
+elem.style.transform="translate("+elem.cscroll.lastmoveX+"px,"+elem.cscroll.lastmoveY+"px)";
 }
 elem.cscroll.lastmovetime=Date.now();
 };
@@ -65,11 +69,17 @@ return;
 var elem=cscroll.curelem;
 var container=elem.parentNode;
 var dsX=e.changedTouches[0].clientX-elem.cscroll.startX;
+var ldsX=e.changedTouches[0].clientX-elem.cscroll.lastmoveX;
 var dsY=e.changedTouches[0].clientY-elem.cscroll.startY;
+var ldsY=e.changedTouches[0].clientY-elem.cscroll.lastmoveY;
 var tt=Date.now()-elem.cscroll.lastmovetime;
 tt=Math.max(tt,1);
-dsX*=1+3/tt;
-dsY*=1+3/tt;
+if(ldsX>2){
+dsX*=1+2/tt;
+}
+if(ldsY>2){
+dsY*=1+2/tt;
+}
 elem.cscroll.tdsX+=dsX;
 elem.cscroll.tdsY+=dsY;
 var oleft=0;
