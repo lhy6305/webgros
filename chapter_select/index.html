@@ -96,7 +96,7 @@ margin:0 1.979167vw 0 1.979167vw;
 display:inline-block;
 position:absolute;
 font-size:45px;
-background-color:rgba(0,0,0,.15);
+background-color:rgba(0,0,0,.3);
 color:#fff;
 opacity:0.8;
 transform:rotate(-75deg);
@@ -104,8 +104,15 @@ bottom:0;
 left:100%;
 width:200vh;
 transform-origin:left bottom;
-box-shadow:0 -15px 20px 10px rgba(0,0,0,.15);
+box-shadow:0 -15px 20px 10px rgba(0,0,0,.3);
 z-index:2;
+}
+.chapter_play_ui{
+position:absolute;
+width:65vw;
+left:-14vw;
+top:0;
+z-index:4;
 }
 </style>
 </head><body>
@@ -116,6 +123,7 @@ z-index:2;
 <div id="chapter_list">
 
 <div class="chapter_image_clip">
+<img class="chapter_play_ui" src="../resources/chapter_select/full.png" style="">
 <img class="chapter_image" src="../resources/chapter_cover/SingleChapterCover.png" style="left:-37vh;"><p class="chapter_text">Single</p>
 </div>
 
