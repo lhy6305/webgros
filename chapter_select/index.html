@@ -75,6 +75,7 @@ transform:translateX(17.8625vw);
 opacity:0;
 }
 .chapter_image_clip:hover .chapter_play_ui{
+transform:unset;
 opacity:1;
 }
 .chapter_short_text{
@@ -102,7 +103,8 @@ left:0;
 top:0;
 z-index:4;
 opacity:0;
-transition:opacity .25s cubic-bezier(.17,.89,.45,1);
+transition:opacity .25s cubic-bezier(.89,.17,1,.45),transform .25s cubic-bezier(.89,.17,1,.45);
+transform:translateX(-17.8625vw);
 }
 .chapter_play_img{
 position:absolute;
@@ -116,7 +118,7 @@ z-index:4;
 position:absolute;
 top:71.3%;
 z-index:4;
-height:1.1vw;
+height:1.5vw;
 }
 .chapter_play_text_img_all{
 left:37vh;
