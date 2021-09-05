@@ -53,8 +53,6 @@ display:inline-block;
 height:100vh;
 transform-origin:center center;
 z-index:-1;
-
-transform:translateX(17.8625vw);
 }
 .chapter_image_clip{
 position:relative;
@@ -66,19 +64,17 @@ width:22.1875vw;
 margin:0 1.979167vw 0 1.979167vw;
 transition:width 0.25s cubic-bezier(.17,.89,.45,1);
 z-index:3;
-
-width:58.175vw;
 }
 .chapter_image_clip:hover{
 width:58.175vw;
 }
-.chapter_image_clip:hover img{
+.chapter_image_clip:hover .chapter_image{
 transform:translateX(17.8625vw);
 }
-.chapter_image_clip:hover p{
+.chapter_image_clip:hover .chapter_short_text{
 display:none;
 }
-.chapter_text{
+.chapter_short_text{
 display:inline-block;
 position:absolute;
 font-size:45px;
@@ -98,16 +94,19 @@ z-index:2;
 position:absolute;
 width:calc(58.175vw + 26.79492vh);
 height:100vh;
-left:1.979167vw;
+//left:1.979167vw;
+left:0;
 top:0;
 z-index:4;
 }
 .chapter_play_img{
 position:absolute;
 top:50%;
-left:calc(50% + 1px);
+//left:calc(50% + 1px);
+left:1px;
 width:61.03125vw;
-transform:translate(-50%,-50%);
+//transform:translate(-50%,-50%);
+transform:translate(0,-50%);
 }
 .chapter_play_text_img{
 position:absolute;
@@ -124,51 +123,7 @@ top:0;
 <div id="chapter_list">
 
 <div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/SingleChapterCover.png" style="left:-37vh;"><p class="chapter_text">Single</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/MainStoryLegacyChapterCover.png" style="left:-69vh;"><p class="chapter_text">Legacy</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/MainStory4ChapterCover.png" style="left:-62vh;"><p class="chapter_text">Chapter 4</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/MainStory5ChapterCover.png" style="left:-62vh;"><p class="chapter_text">Chapter 5</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/MainStory6ChapterCover.png" style="left:-59vh;"><p class="chapter_text">Chapter 6</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/SideStory1ChapterCover.png" style="left:-76vh;"><p class="chapter_text">Side Story 1</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/MUSEDASHChapterCover.png" style="left:-73vh;"><p class="chapter_text">Chapter EX</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/WAVEATChapterCover.png" style="left:-87vh;"><p class="chapter_text">Chapter EX</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/GoodChapterCover.png" style="left:-62vh;"><p class="chapter_text">Chapter EX</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/HyuNChapterCover.png" style="left:-65vh;"><p class="chapter_text">Chapter EX</p>
-</div>
-
-<div class="chapter_image_clip">
-<img class="chapter_image" src="../resources/chapter_cover/RSTChapterCover.png" style="left:-32vh;"><p class="chapter_text">Chapter EX</p>
-</div>
-
-</div>
-
+<img class="chapter_image" src="../resources/chapter_cover/SingleChapterCover.png" style="left:-37vh;"><p class="chapter_short_text">Single</p>
 <div id="chapter_play_ui">
 <img class="chapter_play_img" src="../resources/chapter_select/play.png" style="">
 <img class="chapter_play_text_img" src="../resources/chapter_select/all.png" style="">
@@ -176,6 +131,51 @@ top:0;
 <img class="chapter_play_text_img" src="../resources/chapter_select/full_combo.png" style="">
 <img class="chapter_play_text_img" src="../resources/chapter_select/phi.png" style="">
 </div>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStoryLegacyChapterCover.png" style="left:-69vh;"><p class="chapter_short_text">Legacy</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStory4ChapterCover.png" style="left:-62vh;"><p class="chapter_short_text">Chapter 4</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStory5ChapterCover.png" style="left:-62vh;"><p class="chapter_short_text">Chapter 5</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStory6ChapterCover.png" style="left:-59vh;"><p class="chapter_short_text">Chapter 6</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/SideStory1ChapterCover.png" style="left:-76vh;"><p class="chapter_short_text">Side Story 1</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MUSEDASHChapterCover.png" style="left:-73vh;"><p class="chapter_short_text">Chapter EX</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/WAVEATChapterCover.png" style="left:-87vh;"><p class="chapter_short_text">Chapter EX</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/GoodChapterCover.png" style="left:-62vh;"><p class="chapter_short_text">Chapter EX</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/HyuNChapterCover.png" style="left:-65vh;"><p class="chapter_short_text">Chapter EX</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/RSTChapterCover.png" style="left:-32vh;"><p class="chapter_short_text">Chapter EX</p>
+</div>
+
+</div>
+
+
 </div>
 <script>
 try{
