@@ -72,13 +72,13 @@ width:58.175vw;
 transform:translateX(17.8625vw);
 }
 .chapter_image_clip:hover .chapter_short_text{
-display:none;
+opacity:0;
 }
 .chapter_short_text{
 display:inline-block;
 position:absolute;
 font-size:45px;
-background-color:rgba(0,0,0,.3);
+background-color:rgba(0,0,0,.2);
 color:#fff;
 opacity:0.8;
 transform:rotate(-75deg);
@@ -86,8 +86,9 @@ bottom:0;
 left:100%;
 width:200vh;
 transform-origin:left bottom;
-box-shadow:0 -15px 20px 10px rgba(0,0,0,.3);
+box-shadow:0 -15px 30px 20px rgba(0,0,0,.2);
 z-index:2;
+transition:opacity 0.25s cubic-bezier(.17,.89,.45,1)
 }
 
 #chapter_play_ui{
