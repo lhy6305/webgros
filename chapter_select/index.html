@@ -74,6 +74,9 @@ transform:translateX(17.8625vw);
 .chapter_image_clip:hover .chapter_short_text{
 opacity:0;
 }
+.chapter_image_clip:hover .chapter_play_ui{
+opacity:1;
+}
 .chapter_short_text{
 display:inline-block;
 position:absolute;
@@ -88,16 +91,18 @@ width:200vh;
 transform-origin:left bottom;
 box-shadow:0 -15px 30px 20px rgba(0,0,0,.2);
 z-index:2;
-transition:opacity 0.25s cubic-bezier(.17,.89,.45,1)
+transition:opacity 0.25s cubic-bezier(.17,.89,.45,1);
 }
 
-#chapter_play_ui{
+.chapter_play_ui{
 position:absolute;
 width:calc(58.175vw + 26.79492vh);
 height:100vh;
 left:0;
 top:0;
 z-index:4;
+opacity:0;
+transition:opacity 0.25s cubic-bezier(.17,.89,.45,1);
 }
 .chapter_play_img{
 position:absolute;
@@ -122,7 +127,7 @@ top:0;
 
 <div class="chapter_image_clip">
 <img class="chapter_image" src="../resources/chapter_cover/SingleChapterCover.png" style="left:-37vh;"><p class="chapter_short_text">Single</p>
-<div id="chapter_play_ui">
+<div class="chapter_play_ui">
 <img class="chapter_play_img" src="../resources/chapter_select/play.png">
 <img class="chapter_play_text_img" src="../resources/chapter_select/all.png">
 <img class="chapter_play_text_img" src="../resources/chapter_select/cleared.png">
