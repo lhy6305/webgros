@@ -28,11 +28,8 @@ body{
 background-color:#000;
 }
 #chapter_list{
-//overflow-x:visible;
-//overflow-y:hidden;
 overflow:visible;
 filter:drop-shadow(0 0 8px rgba(0,0,0,0.8));
-//filter:drop-shadow(0 0 8px #0ff);
 border:1px solid #0f0;
 width:calc((11 + 3) * 22.1875vw);
 white-space:nowrap;
@@ -41,13 +38,11 @@ transform-origin:center center;
 .chapter_image{
 position:absolute;
 top:0;
-//left:-30px;
+left:0;
 display:inline-block;
 height:100vh;
 transform-origin:center center;
-//object-fit:cover;
-//opacity:0.5;
-transition:clip-path 0.25s cubic-bezier(.17,.89,.45,1),width 0.25s cubic-bezier(.17,.89,.45,1),margin 0.25s cubic-bezier(.17,.89,.45,1),transform 0.25s cubic-bezier(.17,.89,.45,1);
+transition:transform 0.25s cubic-bezier(.17,.89,.45,1);
 z-index:1;
 }
 #background_image{
@@ -72,9 +67,6 @@ z-index:3;
 }
 .chapter_image_clip:hover{
 width:58.175vw;
-//clip-path:polygon(26.79492vh 0,calc(26.79492vh + 200%) 0,200% 100%,0 100%);
-//clip-path:unset;
-//margin:0 22.5vw 0 2.5vw;
 }
 .chapter_image_clip:hover img{
 transform:translateX(17.8625vw);
@@ -82,16 +74,6 @@ transform:translateX(17.8625vw);
 .chapter_image_clip:hover p{
 display:none;
 }
-/*
-.chapter_image_clip_pad{
-position:relative;
-height:100vh;
-transform-origin:center center;
-display:inline-block;
-width:22.1875vw;
-margin:0 1.979167vw 0 1.979167vw;
-}
-*/
 .chapter_text{
 display:inline-block;
 position:absolute;
@@ -107,12 +89,29 @@ transform-origin:left bottom;
 box-shadow:0 -15px 20px 10px rgba(0,0,0,.3);
 z-index:2;
 }
-.chapter_play_ui{
+
+#chapter_play_ui{
 position:absolute;
-width:65vw;
-left:-14vw;
+width:calc(58.175vw + 26.79492vh);
+height:100vh;
+left:58.175vw;
 top:0;
 z-index:4;
+}
+.chapter_play_img{
+position:absolute;
+top:50%;
+left:50%;
+width:58.175vw;
+transform:translate(-50%,-50%);
+left:-14vw;
+top:0;
+}
+.chapter_play_text_img{
+position:absolute;
+//width:65vw;
+left:-14vw;
+top:0;
 }
 </style>
 </head><body>
@@ -123,7 +122,6 @@ z-index:4;
 <div id="chapter_list">
 
 <div class="chapter_image_clip">
-<img class="chapter_play_ui" src="../resources/chapter_select/full.png" style="">
 <img class="chapter_image" src="../resources/chapter_cover/SingleChapterCover.png" style="left:-37vh;"><p class="chapter_text">Single</p>
 </div>
 
@@ -167,6 +165,14 @@ z-index:4;
 <img class="chapter_image" src="../resources/chapter_cover/RSTChapterCover.png" style="left:-32vh;"><p class="chapter_text">Chapter EX</p>
 </div>
 
+</div>
+
+<div id="chapter_play_ui">
+<img class="chapter_play_img" src="../resources/chapter_select/play.png" style="">
+<img class="chapter_play_text_img" src="../resources/chapter_select/all.png" style="">
+<img class="chapter_play_text_img" src="../resources/chapter_select/cleared.png" style="">
+<img class="chapter_play_text_img" src="../resources/chapter_select/full_combo.png" style="">
+<img class="chapter_play_text_img" src="../resources/chapter_select/phi.png" style="">
 </div>
 </div>
 <script>
