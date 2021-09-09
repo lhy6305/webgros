@@ -15,7 +15,7 @@ width:100vw;
 height:100vh;
 border:2px solid #ffff00;
 /**/
-//overflow:hidden;
+overflow:hidden;
 /**/
 position:absolute;
 left:0;
@@ -81,14 +81,16 @@ opacity:1;
 .chapter_short_text{
 display:inline-block;
 position:absolute;
-font-size:12vmin;
+font-size:13vmin;
+height:16vmin;
+line-height:16vmin;
 font-weight:bold;
 background-color:rgba(0,0,0,.2);
 color:#fff;
 opacity:.9;
 transform:rotate(-75deg);
-bottom:2%;
-left:98%;
+bottom:0%;
+left:100%;
 width:150vh;
 transform-origin:left bottom;
 box-shadow:0 -15px 30px 20px rgba(0,0,0,.2);
@@ -145,11 +147,10 @@ top:calc(70% - 2vw);
 display:inline-block;
 text-align:center;
 z-index:4;
-border:1px solid #0ff;
 }
 .chapter_play_text_all{
-width:1.5vw;
-left:20.8125vw;
+width:3.5vw;
+left:calc(20.8125vw - 1vw);
 }
 .chapter_play_text_cleared{
 width:4.0625vw;
@@ -160,8 +161,8 @@ width:6.0625vw;
 left:34.6875vw;
 }
 .chapter_play_text_phi{
-width:1.625vw;
-left:47.2499vw;
+width:3.625vw;
+left:calc(47.2499vw - 1vw);
 }
 </style>
 </head><body>
