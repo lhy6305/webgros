@@ -2,13 +2,13 @@
 <meta charset="utf-8"><meta name="viewport" content="user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
 <title>章节选择</title>
 <link href="css/base.css" type="text/css" rel="stylesheet">
-<link href="../shared_code/css/exoel.css" type="text/css" rel="stylesheet">
+<link href="../shared_code/css/exol.css" type="text/css" rel="stylesheet">
 <script src="../shared_code/js/custom_scroll.js"></script>
 <style>
 *{
 margin:0;
 padding:0;
-font-family:exoel;
+font-family:exol;
 }
 #main{
 width:100vw;
@@ -86,7 +86,7 @@ height:16vmin;
 line-height:16vmin;
 font-weight:bold;
 background-color:rgba(0,0,0,.2);
-color:#fff;
+color:rgba(255,255,255,0.9);
 opacity:.9;
 transform:rotate(-75deg);
 bottom:0%;
@@ -164,13 +164,60 @@ left:34.6875vw;
 width:3.625vw;
 left:calc(47.2499vw - 1vw);
 }
+#user_info_banner{
+position:absolute;
+width:37vw;
+height:calc(37vw * 0.209091);
+left:48%;
+top:0;
+transform:translate(-50%,0);
+z-index:5;
+text-shadow:0 0;
+}
+#user_info_background{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+z-index:5;
+}
+#user_info_avatar{
+position:absolute;
+left:0;
+top:0;
+width:20%;
+z-index:6;
+clip-path:polygon(0 16%,calc(100% - (37vw * 0.034)) 16%,100% 80%,calc(37vw * 0.034) 80%);
+transform:translate(50%,-4%);
+}
+#user_info_name{
+position:absolute;
+font-size:2.5vw;
+left:60%;
+top:42%;
+transform:translate(-50%,-50%);
+z-index:6;
+}
+#user_info_rks{
+position:absolute;
+font-size:1.3vw;
+right:8%;
+bottom:28%;
+z-index:6;
+}
 </style>
 </head><body>
 <div id="main">
 
 <img id="background_image" src="../resources/chapter_cover/SingleChapterCoverBlur.png" style="opacity:0.6">
+<div id="user_info_banner">
+<img id="user_info_background" src="../resources/normal/player_info.png">
+<img id="user_info_avatar" src="../resources/avatar/Introduction.png">
+<p id="user_info_name">GUEST</p>
+<p id="user_info_rks">12.37</p>
+</div>
 
-<div id="chapter_list">
+<div id="chapter_list" style="display1:none">
 
 <div class="chapter_image_clip">
 <img class="chapter_image" src="../resources/chapter_cover/SingleChapterCover.png" style="left:-37vh;"><p class="chapter_short_text">Single</p>
@@ -232,7 +279,7 @@ left:calc(47.2499vw - 1vw);
 <script>
 try{
 cscroll.bind(document.getElementById("chapter_list"),0);
-//cscroll.unbind(document.getElementById("chapter_list"));
+cscroll.unbind(document.getElementById("chapter_list"));
 }catch(e){alert(e)}
 /*
 document.getElementById("a").ontouchstart=function(){
