@@ -31,9 +31,10 @@ background-color:#000;
 overflow:visible;
 //filter:drop-shadow(0 0 8px rgba(0,0,0,.8));
 border:1px solid #0f0;
-width:calc((11 + 3) * 22.1875vw);
+width:calc((11 + 1) * 22.1875vw + (11 + 2) * 1.879vw + 26.79492vh + 4.8vw);
 white-space:nowrap;
 transform-origin:center center;
+padding:0 0 0 0.9vw;
 }
 .chapter_image{
 position:absolute;
@@ -61,7 +62,7 @@ clip-path:polygon(26.79492vh 0,calc(26.79492vh + 100%) 0,100% 100%,0 100%);
 height:100vh;
 transform-origin:center center;
 width:22.1875vw;
-margin:0 1.979167vw 0 1.979167vw;
+margin:0 1.879vw 0 1.879vw;
 transition:width .25s cubic-bezier(.17,.89,.45,1);
 z-index:3;
 }
@@ -105,7 +106,6 @@ height:100vh;
 left:0;
 top:0;
 z-index:4;
-//opacity:0;
 transition:opacity .25s cubic-bezier(.17,.89,.45,1),transform .25s cubic-bezier(.17,.89,.45,1);
 transform:translateX(-17.8625vw);
 transform-origin:center center;
@@ -168,7 +168,7 @@ left:calc(47.2499vw - 1vw);
 position:absolute;
 width:34.2vw;
 height:calc(37vw * 0.209091);
-left:50.2%;
+left:50.8%;
 top:0;
 transform:translate(-50%,0);
 z-index:5;
@@ -193,8 +193,8 @@ transform:translate(50%,-4%);
 #user_info_name{
 position:absolute;
 font-size:2.5vw;
-left:60%;
-top:42%;
+left:57%;
+top:40%;
 transform:translate(-50%,-50%);
 z-index:6;
 }
@@ -202,7 +202,7 @@ z-index:6;
 position:absolute;
 font-size:1.3vw;
 right:8%;
-bottom:28%;
+bottom:34%;
 z-index:6;
 }
 </style>
