@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<title>webgros.loading</title>
+<link href="css/base.css" type="text/css" rel="stylesheet">
+<link href="../shared_code/css/electrolize.css" type="text/css" rel="stylesheet">
+<link href="../shared_code/css/exoel.css" type="text/css" rel="stylesheet">
+<script src="../shared_code/js/custom_scroll.js"></script>
+</head><body>
+<div id="main">
+
+<p id="loading_text" class="page_center">&nbsp;&nbsp;Loading...</p>
+<div id="loading_background" class="page_center"></div>
+<p class="tips_text">&nbsp;Tip:&nbsp;<span id="tips_text"></span></p>
+</div>
+<script>
+!function(){
+var lt=document.getElementById("loading_text");
+var ld=document.getElementById("loading_background");
+var tt=document.getElementById("tips_text");
+var f1=function(){
+lt.style.backgroundPosition=ld.style.backgroundPosition="100% center";
+lt.style.transition=ld.style.transition="unset";
+setTimeout(f2,500);
+};
+var f2=function(){
+lt.style.transition=ld.style.transition="background-position 0.5s ease-out";
+lt.style.backgroundPosition=ld.style.backgroundPosition="50% center";
+setTimeout(f3,800);
+};
+var f3=function(){
+lt.style.transition=ld.style.transition="background-position 0.5s ease-in";
+lt.style.backgroundPosition=ld.style.backgroundPosition="0% center";
+setTimeout(f1,500);
+};
+f1();
+}();
+</script>
+</body>
+</html>

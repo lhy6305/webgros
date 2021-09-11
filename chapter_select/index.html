@@ -1,0 +1,295 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<title>章节选择</title>
+<link href="css/base.css" type="text/css" rel="stylesheet">
+<link href="../shared_code/css/exol.css" type="text/css" rel="stylesheet">
+<script src="../shared_code/js/custom_scroll.js"></script>
+<style>
+*{
+margin:0;
+padding:0;
+font-family:exol;
+}
+#main{
+width:100vw;
+height:100vh;
+border:2px solid #ffff00;
+/**/
+overflow:hidden;
+/**/
+position:absolute;
+left:0;
+top:0;
+}
+
+
+
+body{
+background-color:#000;
+}
+#chapter_list{
+overflow:visible;
+//filter:drop-shadow(0 0 8px rgba(0,0,0,.8));
+border:1px solid #0f0;
+width:calc((11 + 1) * 22.1875vw + (11 + 2) * 1.879vw + 26.79492vh + 4.8vw);
+white-space:nowrap;
+transform-origin:center center;
+padding:0 0 0 0.9vw;
+}
+.chapter_image{
+position:absolute;
+top:0;
+left:0;
+display:inline-block;
+height:100vh;
+transform-origin:center center;
+transition:transform .25s cubic-bezier(.17,.89,.45,1);
+z-index:1;
+}
+#background_image{
+position:absolute;
+left:-2.8vw;
+top:0;
+display:inline-block;
+height:100vh;
+transform-origin:center center;
+z-index:-1;
+}
+.chapter_image_clip{
+position:relative;
+display:inline-block;
+clip-path:polygon(26.79492vh 0,calc(26.79492vh + 100%) 0,100% 100%,0 100%);
+height:100vh;
+transform-origin:center center;
+width:22.1875vw;
+margin:0 1.879vw 0 1.879vw;
+transition:width .25s cubic-bezier(.17,.89,.45,1);
+z-index:3;
+}
+.chapter_image_clip:hover{
+width:58.175vw;
+}
+.chapter_image_clip:hover .chapter_image{
+transform:translateX(17.8625vw);
+}
+.chapter_image_clip:hover .chapter_short_text{
+opacity:0;
+}
+.chapter_image_clip:hover .chapter_play_ui{
+transform:unset;
+opacity:1;
+}
+.chapter_short_text{
+display:inline-block;
+position:absolute;
+font-size:13vmin;
+height:16vmin;
+line-height:16vmin;
+font-weight:bold;
+background-color:rgba(0,0,0,.2);
+color:rgba(255,255,255,0.9);
+opacity:.9;
+transform:rotate(-75deg);
+bottom:0%;
+left:100%;
+width:150vh;
+transform-origin:left bottom;
+box-shadow:0 -15px 30px 20px rgba(0,0,0,.2);
+z-index:2;
+transition:opacity .25s cubic-bezier(.17,.89,.45,1);
+}
+
+.chapter_play_ui{
+position:absolute;
+width:calc(58.175vw + 26.79492vh);
+height:100vh;
+left:0;
+top:0;
+z-index:4;
+transition:opacity .25s cubic-bezier(.17,.89,.45,1),transform .25s cubic-bezier(.17,.89,.45,1);
+transform:translateX(-17.8625vw);
+transform-origin:center center;
+}
+.chapter_play_img{
+position:absolute;
+top:50%;
+left:calc(10.39746vh + 1px);
+width:61.03125vw;
+transform:translate(0,-50%);
+z-index:4;
+transform-origin:center center;
+}
+.chapter_play_text_img{
+position:absolute;
+top:71.3%;
+z-index:4;
+height:1.5vw;
+transform-origin:center center;
+}
+.chapter_play_text_img_all{
+left:20.8125vw;
+}
+.chapter_play_text_img_cleared{
+left:28.6875vw;
+}
+.chapter_play_text_img_full_combo{
+left:34.6875vw;
+}
+.chapter_play_text_img_phi{
+left:47.2499vw;
+}
+.chapter_play_text{
+color:#fff;
+position:absolute;
+transform-origin:center center;
+font-size:2vw;
+top:calc(70% - 2vw);
+display:inline-block;
+text-align:center;
+z-index:4;
+}
+.chapter_play_text_all{
+width:3.5vw;
+left:calc(20.8125vw - 1vw);
+}
+.chapter_play_text_cleared{
+width:4.0625vw;
+left:28.6875vw;
+}
+.chapter_play_text_full_combo{
+width:6.0625vw;
+left:34.6875vw;
+}
+.chapter_play_text_phi{
+width:3.625vw;
+left:calc(47.2499vw - 1vw);
+}
+#user_info_banner{
+position:absolute;
+width:34.2vw;
+height:calc(37vw * 0.209091);
+left:50.8%;
+top:0;
+transform:translate(-50%,0);
+z-index:5;
+text-shadow:0 0;
+}
+#user_info_background{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+z-index:5;
+}
+#user_info_avatar{
+position:absolute;
+left:0;
+top:0;
+width:20%;
+z-index:6;
+clip-path:polygon(0 16%,calc(100% - (37vw * 0.034)) 16%,100% 80%,calc(37vw * 0.034) 80%);
+transform:translate(50%,-4%);
+}
+#user_info_name{
+position:absolute;
+font-size:2.5vw;
+left:57%;
+top:40%;
+transform:translate(-50%,-50%);
+z-index:6;
+}
+#user_info_rks{
+position:absolute;
+font-size:1.3vw;
+right:8%;
+bottom:34%;
+z-index:6;
+}
+</style>
+</head><body>
+<div id="main">
+
+<img id="background_image" src="../resources/chapter_cover/SingleChapterCoverBlur.png" style="opacity:0.6">
+<div id="user_info_banner">
+<img id="user_info_background" src="../resources/normal/player_info.png">
+<img id="user_info_avatar" src="../resources/avatar/Introduction.png">
+<p id="user_info_name">GUEST</p>
+<p id="user_info_rks">12.39</p>
+</div>
+
+<div id="chapter_list" style="display1:none">
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/SingleChapterCover.png" style="left:-37vh;"><p class="chapter_short_text">Single</p>
+<div class="chapter_play_ui">
+<img class="chapter_play_img" src="../resources/chapter_select/play.png">
+<p class="chapter_play_text chapter_play_text_all">00</p>
+<img class="chapter_play_text_img chapter_play_text_img_all" src="../resources/chapter_select/all.png">
+<p class="chapter_play_text chapter_play_text_cleared">00</p>
+<img class="chapter_play_text_img chapter_play_text_img_cleared" src="../resources/chapter_select/cleared.png">
+<p class="chapter_play_text chapter_play_text_full_combo">00</p>
+<img class="chapter_play_text_img chapter_play_text_img_full_combo" src="../resources/chapter_select/full_combo.png">
+<p class="chapter_play_text chapter_play_text_phi">00</p>
+<img class="chapter_play_text_img chapter_play_text_img_phi" src="../resources/chapter_select/phi.png">
+</div>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStoryLegacyChapterCover.png" style="left:-69vh;"><p class="chapter_short_text">Legacy</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStory4ChapterCover.png" style="left:-62vh;"><p class="chapter_short_text">Chapter 4</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStory5ChapterCover.png" style="left:-62vh;"><p class="chapter_short_text">Chapter 5</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MainStory6ChapterCover.png" style="left:-59vh;"><p class="chapter_short_text">Chapter 6</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/SideStory1ChapterCover.png" style="left:-76vh;"><p class="chapter_short_text">Side story 1</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/MUSEDASHChapterCover.png" style="left:-73vh;"><p class="chapter_short_text">Chapter Ex</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/WAVEATChapterCover.png" style="left:-87vh;"><p class="chapter_short_text">Chapter Ex</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/GoodChapterCover.png" style="left:-62vh;"><p class="chapter_short_text">Chapter Ex</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/HyuNChapterCover.png" style="left:-65vh;"><p class="chapter_short_text">Chapter Ex</p>
+</div>
+
+<div class="chapter_image_clip">
+<img class="chapter_image" src="../resources/chapter_cover/RSTChapterCover.png" style="left:-32vh;"><p class="chapter_short_text">Chapter Ex</p>
+</div>
+</div>
+
+</div>
+<script>
+try{
+cscroll.bind(document.getElementById("chapter_list"),0);
+//cscroll.unbind(document.getElementById("chapter_list"));
+}catch(e){alert(e)}
+/*
+document.getElementById("a").ontouchstart=function(){
+var a=this;
+a.parentNode.className+=" chapter_image_clip_expanded";
+setTimeout(function(){
+a.parentNode.className="chapter_image_clip";
+},1000);
+};
+*/
+</script>
+</body>
+</html>

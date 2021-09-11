@@ -1,0 +1,63 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="user-scalable=yes,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<link href="css/note_main.css" type="text/css" rel="stylesheet">
+<link href="css/note_explode.css" type="text/css" rel="stylesheet">
+<style>
+body{
+background-color:#222;
+}
+@keyframes noteid0{
+0%{
+transform:translateY(0vh);
+}
+100%{
+transform:translateY(100vh);
+}
+}
+</style>
+<script>
+var getelem=function(){
+var a=document.createElement("div");
+a.className="note_container";
+a.style.left=(Math.random()*100)+"%";
+a.style.position="absolute";
+a.style.top=(Math.random()*100)+"%";
+var b=document.createElement("div");
+b.className="note_body_container_container";
+var c=document.createElement("div");
+c.className="note_body_container";
+var d=document.createElement("img");
+d.className="note_body";
+d.src=["../resources/img/tap.png","../resources/img/drag.png","../resources/img/flick.png"][Math.round(Math.random()*2)];
+a.appendChild(b);
+b.appendChild(c);
+c.appendChild(d);
+return a;
+};
+window.onload=function(){
+var d=500;
+for(var i=0;i<1000;i++){
+var b=getelem();
+document.getElementById("da").appendChild(b);
+if(i>=d){
+b.style.display="none";
+}
+}
+var a=d;
+var f=function(){
+try{
+document.getElementById("da").childNodes[a-d].style.display="none";
+document.getElementById("da").childNodes[a].style.display="inline-block";
+a++;
+window.requestAnimationFrame(f);
+//alert();
+}catch(e){alert(e)}
+};
+window.requestAnimationFrame(f);
+
+};
+</script>
+</head><body>
+<div id="da" style="animation:noteid0 5s linear infinite;height:100vw;width:100vh;"></div>
+</body>
+</html>
