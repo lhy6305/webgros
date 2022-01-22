@@ -8,3 +8,5 @@ Source code (unless stated otherwise) is distributed under [LGPL-2.1 license](ht
   
 Font [**Exo**](https://www.ndiscover.com/exo-1-0/) and [**Exo2**](https://www.ndiscover.com/exo-2-0/) by **Natanael Gama** is licensed under [SIL Open Font License](http://scripts.sil.org/OFL)  
   
+**This project is only for learning and exchange, and it is strictly prohibited to use it for commercial profit.  
+The author is not responsible for all consequences of illegal use.**
